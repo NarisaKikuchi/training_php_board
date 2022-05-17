@@ -1,9 +1,9 @@
 
-.header_left {
+.header-left {
     background-color: rgba(22, 114, 227, 0.947);
 }
 
-.header_letter {
+.header-letter {
     padding-top: 17px;
     padding-bottom: 20px;
     margin-left: 30px;
@@ -12,13 +12,13 @@
     font-family: sans-serif;
 }
 
-.login_screen {
+.login-screen {
     text-align: center;
     color:rgb(96, 96, 103);
     font-family: sans-serif;
 }
 
-.login_screen h2 {
+.login-screen h2 {
     font-size: 25px;
 }
 
@@ -38,7 +38,7 @@
     opacity: 0.7;
 }
 
-.login_letter {
+.login-letter {
     font-size: medium;
 }
 
@@ -52,7 +52,7 @@ input {
     margin-top: 15px;
 }
 
-.login_button button {
+.login-button button {
     background-color: rgb(150, 242, 21);
     border-radius: 10px;
     border: solid 1px rgb(96, 96, 103);
