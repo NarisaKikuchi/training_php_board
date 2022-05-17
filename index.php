@@ -24,8 +24,9 @@
             </div>
 
             <div>
-                <input type="text" value="" placeholder="ユーザーID">
-                <input type="text" value="" placeholder="パスワード">
+                <input type="text" name="userId" maxlength="20" pattern="^[a-zA-Z0-9]+$" value="" placeholder="ユーザーID">
+                <input type="password" name="password" maxlength="30" pattern="^[a-zA-Z0-9]+$" value=""
+                    placeholder="パスワード">
             </div>
 
             <div>
