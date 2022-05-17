@@ -30,7 +30,6 @@
 
 .greybox {
     padding-top: 15px;
-    padding-bottom: 10px;
     width: 525px;
     height: 350px;
     margin: 0 auto 50px auto;
@@ -51,10 +50,6 @@ input {
     width: 350px;
     height: 38px;
     margin-top: 15px;
-}
-
-#password-margin {
-    line-height: 0.5;
 }
 
 .login_button button {
