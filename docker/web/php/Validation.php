@@ -4,6 +4,15 @@ require_once('ValidationUtil.php');
 class Validation
 {
 
+    /**
+     * アカウント新規登録時のバリデーションチェック
+     * 
+     * @param $userid ユーザーID
+     * @param $password パスワード
+     * @param $passwordconfirm パスワード確認
+     * 
+     * @return $alert エラーメッセージ
+     */
     public function userRegistValidation($userid, $password, $passwordconfirm)
     {
         $alert = "";
