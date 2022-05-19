@@ -2,11 +2,10 @@
 
 class usersTable
 {
-
     /**
      * DB接続
      * 
-     * @return $dbinfo
+     * @return mixed $dbinfo
      */
     public function connectDatabase()
     {
