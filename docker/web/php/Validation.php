@@ -9,7 +9,7 @@ class Validation
         $alert = "";
 
         //未入力チェック
-        if (empty($userid && $password && $passwordconfirm)) {
+        if (empty($userid) || empty($password) || empty($passwordconfirm)) {
             $alert = $alert . "未入力の項目があります。" . '\n';
         }
 
@@ -54,7 +54,7 @@ class Validation
         $loginvalidation = $loginvalid->userLogin($loginuserid);
 
         //未入力チェック
-        if (empty($loginuserid && $loginpassword)) {
+        if (empty($loginuserid) || empty($loginpassword)) {
             $loginalert = $loginalert . "未入力の項目があります。" . '\n';
         }
 
