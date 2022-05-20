@@ -21,6 +21,7 @@ class usersTable
      * 
      * @param String $userid, ユーザーID
      * @param String $password, パスワード
+     * @return void
      */
     public function userRegist($userid, $password)
     {
@@ -45,6 +46,27 @@ class usersTable
             $stmt->bindValue(':password', $passwordhash);
             $stmt->execute();
             header('Location:/');
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    /**
+     * ログイン処理
+     *
+     * @param String $userid ユーザーID
+     * @return mixed $selectuserinfo DB上のユーザー情報
+     */
+    public function userLogin($loginuserid)
+    {
+        try {
+            $dbconnect = $this->connectDatabase();
+            $sql = "SELECT * FROM users WHERE user_id = :loginuserId";
+            $stmt = $dbconnect->prepare($sql);
+            $stmt->bindValue(':loginuserId', $loginuserid);
+            $stmt->execute();
+            $selectuserinfo = $stmt->fetch();
+            return $selectuserinfo;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

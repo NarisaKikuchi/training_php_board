@@ -17,7 +17,7 @@ class Validation
         $alert = "";
 
         //未入力チェック
-        if (empty($userid || $password || $passwordconfirm)) {
+        if (empty($userid) || empty($password) || empty($passwordconfirm)) {
             $alert = $alert . "未入力の項目があります。" . '\n';
         }
 
@@ -44,6 +44,43 @@ class Validation
         //エラーが１つでもヒットしていたらエラー文表示
         if (!empty($alert)) {
             return $alert;
+        }
+    }
+
+    /**
+     * ログイン時のバリデーションチェック
+     *
+     * @param String $userid
+     * @param String $password
+     *
+     * @return String $loginalert エラーメッセージ
+     */
+    public function userLoginValidation($loginuserid, $loginpassword)
+    {
+        $loginalert = "";
+        $loginvalid = new usersTable();
+        $loginvalidation = $loginvalid->userLogin($loginuserid);
+
+        //未入力チェック
+        if (empty($loginuserid) || empty($loginpassword)) {
+            $loginalert = $loginalert . "未入力の項目があります。" . '\n';
+        }
+
+        // ユーザがいない
+        if (!$loginvalidation) {
+            $loginalert = $loginalert . 'ユーザーIDが存在しません。';
+        }
+
+        if (password_verify($loginpassword, $loginvalidation['password'])) {
+            //DBのユーザー情報をセッションに保存
+            $_SESSION['loginuserid'] = $loginvalidation['user_id'];
+        } else {
+            $loginalert = $loginalert . 'ユーザーIDかパスワードが間違っています。';
+        }
+
+        //エラーが１つでもヒットしていたらエラー文表示
+        if (!empty($loginalert)) {
+            return $loginalert;
         }
     }
 }

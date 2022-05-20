@@ -1,3 +1,23 @@
+<?php
+require_once('docker/web/php/Validation.php');
+require_once('docker/db/usersTable.php');
+
+session_start();
+
+if (isset($_POST["login"])) {
+    $loginuserid = htmlspecialchars($_POST["loginuserId"], ENT_QUOTES);
+    $loginpassword = $_POST['loginpassword'];
+    $loginvalidationcheck = new Validation();
+    $loginerrormessage = $loginvalidationcheck->userLoginValidation($loginuserid, $loginpassword);
+    if (!empty($loginerrormessage)) {
+        $error = "<script type='text/javascript'>alert('$loginerrormessage');</script>";
+        echo $error;
+    } else {
+        header('Location: docker/web/php/post.php');
+    }
+}
+?>
+
 <html>
 
 <head>
@@ -22,23 +42,23 @@
                 <h2>ログイン</h2>
                 <p>ユーザーIDとパスワードを入力してください。</p>
             </div>
+            <form action="" method="post">
+                <div>
+                    <input type="text" name="loginuserId" maxlength="20" pattern="^[a-zA-Z0-9]+$" value=""
+                        placeholder="ユーザーID">
+                    <input type="password" name="loginpassword" maxlength="30" pattern="^[a-zA-Z0-9]+$" value=""
+                        placeholder="パスワード">
+                </div>
 
-            <div>
-                <input type="text" name="userId" maxlength="20" pattern="^[a-zA-Z0-9]+$" value="" placeholder="ユーザーID">
-                <input type="password" name="password" maxlength="30" pattern="^[a-zA-Z0-9]+$" value=""
-                    placeholder="パスワード">
-            </div>
-
-            <div>
-                <div class="login-button">
-                    <form type="submit">
-                        <button onclick="location.href='login'">ログインする</button>
-                    </form>
+                <div>
+                    <div class="login-button">
+                        <input type="submit" name="login" value="ログインする">
+                    </div>
                 </div>
                 <div>
                     <a href="docker/web/php/createAccount.php">新規追加はこちら</a>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>
