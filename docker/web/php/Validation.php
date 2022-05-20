@@ -9,7 +9,7 @@ class Validation
         $alert = "";
 
         //未入力チェック
-        if (empty($userid || $password || $passwordconfirm)) {
+        if (empty($userid && $password && $passwordconfirm)) {
             $alert = $alert . "未入力の項目があります。" . '\n';
         }
 
@@ -51,24 +51,23 @@ class Validation
     {
         $loginalert = "";
         $loginvalid = new usersTable();
-        $loginvalidation = $loginvalid->userLogin($loginuserid, $loginpassword);
+        $loginvalidation = $loginvalid->userLogin($loginuserid);
 
         //未入力チェック
-        if (empty($loginuserid || $loginpassword)) {
+        if (empty($loginuserid && $loginpassword)) {
             $loginalert = $loginalert . "未入力の項目があります。" . '\n';
         }
 
         // ユーザがいない
         if (!$loginvalidation) {
-            echo 'ユーザ名かパスワードが正しくありません。';
+            $loginalert = $loginalert . 'ユーザーIDが存在しません。';
         }
 
         if (password_verify($loginpassword, $loginvalidation['password'])) {
             //DBのユーザー情報をセッションに保存
             $_SESSION['loginuserid'] = $loginvalidation['user_id'];
-            $_SESSION['loginpassword'] = $loginvalidation['password'];
         } else {
-            $loginalert = $loginalert . 'メールアドレスかパスワードが間違っています。';
+            $loginalert = $loginalert . 'ユーザーIDかパスワードが間違っています。';
         }
 
         //エラーが１つでもヒットしていたらエラー文表示

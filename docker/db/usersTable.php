@@ -55,7 +55,7 @@ class usersTable
      * ログイン処理
      *
      * @param String $userid ユーザーID
-     * @return $selectuserinfo DB上のユーザー情報
+     * @return mixed $selectuserinfo DB上のユーザー情報
      */
     public function userLogin($loginuserid)
     {

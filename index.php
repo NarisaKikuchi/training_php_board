@@ -58,9 +58,8 @@ if (isset($_POST["login"])) {
                 <div>
                     <a href="docker/web/php/createAccount.php">新規追加はこちら</a>
                 </div>
+            </form>
         </div>
-        </form>
-    </div>
     </div>
 </body>
 
