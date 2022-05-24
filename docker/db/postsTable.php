@@ -1,11 +1,13 @@
 <?php
-require_once('../../db/usersTable.php');
+require_once('usersTable.php');
 
 class postsTable
 {
 
     /**
      * 表示機能
+     * 
+     * @return void
      */
     public function display()
     {
