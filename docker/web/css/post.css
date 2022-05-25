@@ -96,6 +96,7 @@ sp-nav(ナビ)
     background-color: #fff;
     transition: all 0.5s;
     z-index: 200;
+    font-family: sans-serif;
 }
 
 /*ハンバーガーがクリックされたら右からスライド*/
@@ -122,6 +123,10 @@ sp-nav(ナビ)
 .open .sp-nav .logout {
     text-align: center;
     padding-top: 15px;
+}
+
+.add-post a, .mg-user a, .logout a {
+    text-decoration: none;
 }
 
 /* 

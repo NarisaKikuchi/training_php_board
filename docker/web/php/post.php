@@ -2,6 +2,13 @@
 require_once('../../db/postsTable.php');
 $table = new postsTable();
 $result = $table->display();
+
+session_start();
+//別のウィンドウで開いたとき、ログインページに飛ばす
+if (!isset($_SESSION["loginuserid"])) {
+    header('Location: ../../../index.php');
+}
+
 ?>
 
 <html>
@@ -25,9 +32,9 @@ $result = $table->display();
                 <label for="menu-btn-check" class="menu-btn" id="menu-btn"><span></span></label>
                 <nav class="sp-nav">
                     <ul class="inner">
-                        <li class="add-post" id="add-post">投稿追加</li>
-                        <li class="mg-user">ユーザー管理</li>
-                        <li class="logout">ログアウト</li>
+                        <li class="add-post" id="add-post"><a>投稿追加</a></li>
+                        <li class="mg-user"><a>ユーザー管理</a></li>
+                        <li class="logout" name="logout"><a href="../../db/logout.php">ログアウト</a></li>
                     </ul>
                 </nav>
                 <div class="black-bg" id="js-black-bg"></div>
@@ -40,15 +47,13 @@ $result = $table->display();
                 </div>
                 <div id="post-form">
                     <h2>投稿追加</h2>
-                    <form action="#">
-                        <p>投稿タイトル</p>
-                        <input id="modal-title" type="text" placeholder="20文字以内で入力してください。">
-                        <p>投稿内容</p>
-                        <input id="modal-contents" type="text">
-                        <div class="post-btn">
-                            <input type="submit" value="投稿する">
-                        </div>
-                    </form>
+                    <p>投稿タイトル</p>
+                    <input id="modal-title" name="postTitle" type="text" maxlength="20" placeholder="20文字以内で入力してください。">
+                    <p>投稿内容</p>
+                    <input id="modal-contents" name="postContents" type="text" maxlength="200">
+                    <div class="post-btn">
+                        <input class="regist-post" id="post-btn" name="registPost" type="submit" value="投稿する">
+                    </div>
                 </div>
             </div>
         </div>

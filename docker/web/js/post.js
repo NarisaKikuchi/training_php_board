@@ -1,6 +1,43 @@
 $(function(){
 
     /**
+     * 投稿時のバリデーションチェック
+     * 
+     * @return void
+     */
+    const postbutton = document.getElementById('post-btn');
+
+    function postValidation() {
+        const posttitle = document.getElementById('modal-title');
+        const postcontents = document.getElementById('modal-contents');
+
+        postbutton.addEventListener('click', function(event) {
+            let postalert = [];
+
+            // 入力値チェック
+            if(posttitle.value =="" || postcontents.value==""){
+                postalert.push("タイトルまたは投稿内容が未入力です。\n");
+            }
+
+            // タイトルの文字数制限チェック
+            if(posttitle.value.length > 20){
+                postalert.push("タイトルは20文字以下で入力してください。\n");
+            }
+
+            // 投稿内容の文字数制限チェック
+            if(postcontents.value.length > 200){
+                postalert.push("投稿内容は200文字以下で入力してください。\n");
+            }
+
+            //　エラーが１つでもヒットしていたらエラー文表示
+            if(postalert.length > 0){
+                alert(postalert);
+            }
+        });
+    }
+    postValidation();
+
+    /**
      * 投稿一覧を表示する
      * 
      * @return void
@@ -48,3 +85,4 @@ $(function(){
     })
 
 });
+

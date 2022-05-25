@@ -1,0 +1,6 @@
+[25-May-2022 10:57:13 Asia/Tokyo] PHP Notice:  Undefined index: loginuserid in /var/www/html/docker/db/logout.php on line 11
+[25-May-2022 13:04:49 Asia/Tokyo] PHP Notice:  Undefined index: postContents in /var/www/html/docker/web/php/post.php on line 15
+[25-May-2022 13:04:49 Asia/Tokyo] PHP Fatal error:  Uncaught Error: Class 'Validation' not found in /var/www/html/docker/web/php/post.php:16
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/docker/web/php/post.php on line 16
