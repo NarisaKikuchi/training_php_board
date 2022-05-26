@@ -27,7 +27,8 @@ $(function(){
 
             //　エラーが１つでもヒットしていたらエラー文表示
             if(postalert.length > 0){
-                return(postalert);
+                let postalerts = postalert.join("");
+                return postalerts;
             }
         }
 

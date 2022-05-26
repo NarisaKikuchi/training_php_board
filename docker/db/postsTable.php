@@ -64,7 +64,6 @@ class postsTable
             $addpostdata->bindValue(':posttitle', $title);
             $addpostdata->bindValue(':postcontents', $contents);
             $addpostdata->execute();
-            error_log($_POST['postTitle'] . $_POST['postContents']);
         } catch (PDOException $e) {
             echo $e->getMessage;
         }
