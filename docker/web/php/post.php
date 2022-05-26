@@ -3,7 +3,6 @@ require_once('../../db/postsTable.php');
 $table = new postsTable();
 $result = $table->display();
 
-session_start();
 //別のウィンドウで開いたとき、ログインページに飛ばす
 if (!isset($_SESSION["loginuserid"])) {
     header('Location: ../../../index.php');
@@ -48,7 +47,7 @@ if (!isset($_SESSION["loginuserid"])) {
                 <div id="post-form">
                     <h2>投稿追加</h2>
                     <p>投稿タイトル</p>
-                    <input id="modal-title" name="postTitle" type="text" maxlength="20" placeholder="20文字以内で入力してください。">
+                    <input id="modal-title" name="postTitle" type="text" placeholder="20文字以内で入力してください。">
                     <p>投稿内容</p>
                     <input id="modal-contents" name="postContents" type="text" maxlength="200">
                     <div class="post-btn">

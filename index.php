@@ -2,8 +2,6 @@
 require_once('docker/web/php/Validation.php');
 require_once('docker/db/usersTable.php');
 
-session_start();
-
 if (isset($_POST["login"])) {
     $loginuserid = htmlspecialchars($_POST["loginuserId"], ENT_QUOTES);
     $loginpassword = $_POST['loginpassword'];

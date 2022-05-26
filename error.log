@@ -4,3 +4,278 @@
 Stack trace:
 #0 {main}
   thrown in /var/www/html/docker/web/php/post.php on line 16
+[25-May-2022 16:31:37 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 3 expected in /var/www/html/docker/db/postsTable.php:33
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 33
+[25-May-2022 16:34:31 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 3 expected in /var/www/html/docker/db/postsTable.php:33
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 33
+[25-May-2022 16:45:31 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 4 expected in /var/www/html/docker/db/postsTable.php:33
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 33
+[25-May-2022 17:06:05 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 4 expected in /var/www/html/docker/db/postsTable.php:35
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 35
+[25-May-2022 17:10:15 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 4 expected in /var/www/html/docker/db/postsTable.php:35
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 35
+[25-May-2022 17:10:37 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 4 expected in /var/www/html/docker/db/postsTable.php:35
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 35
+[25-May-2022 17:10:48 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 4 expected in /var/www/html/docker/db/postsTable.php:35
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 35
+[25-May-2022 17:15:24 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 4 expected in /var/www/html/docker/db/postsTable.php:35
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 35
+[25-May-2022 17:26:12 Asia/Tokyo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function postsTable::addPostDisplay(), 0 passed in /var/www/html/docker/web/php/ajax.php on line 7 and exactly 4 expected in /var/www/html/docker/db/postsTable.php:35
+Stack trace:
+#0 /var/www/html/docker/web/php/ajax.php(7): postsTable->addPostDisplay()
+#1 {main}
+  thrown in /var/www/html/docker/db/postsTable.php on line 35
+[25-May-2022 17:48:22 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 17:48:22 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 17:48:22 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 17:50:05 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 17:50:05 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 17:50:05 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 17:50:05 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 17:50:05 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 17:53:55 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 17:53:55 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 17:53:55 Asia/Tokyo] PHP Notice:  Undefined variable: _SESSION in /var/www/html/docker/db/postsTable.php on line 45
+[25-May-2022 17:53:55 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 17:53:55 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 17:53:55 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 49
+[25-May-2022 17:53:55 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 17:58:00 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 17:58:00 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 17:58:00 Asia/Tokyo] PHP Notice:  Undefined variable: _SESSION in /var/www/html/docker/db/postsTable.php on line 45
+[25-May-2022 17:58:00 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 17:58:00 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 17:58:00 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 49
+[25-May-2022 17:58:00 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 19:35:36 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 19:35:36 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 19:35:36 Asia/Tokyo] PHP Notice:  Undefined variable: _SESSION in /var/www/html/docker/db/postsTable.php on line 45
+[25-May-2022 19:35:36 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 19:35:36 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 19:35:36 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 49
+[25-May-2022 19:35:36 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 19:36:31 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 19:36:31 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 19:36:31 Asia/Tokyo] PHP Notice:  Undefined variable: _SESSION in /var/www/html/docker/db/postsTable.php on line 45
+[25-May-2022 19:36:31 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 19:36:31 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 19:36:31 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 49
+[25-May-2022 19:36:31 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 19:39:01 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 19:39:01 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 19:39:01 Asia/Tokyo] PHP Notice:  Undefined variable: _SESSION in /var/www/html/docker/db/postsTable.php on line 45
+[25-May-2022 19:39:01 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 19:39:01 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 19:39:01 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 49
+[25-May-2022 19:39:01 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 20:01:28 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 20:01:28 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 20:01:28 Asia/Tokyo] PHP Notice:  Undefined variable: _SESSION in /var/www/html/docker/db/postsTable.php on line 45
+[25-May-2022 20:01:28 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 20:01:28 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 20:01:28 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 49
+[25-May-2022 20:01:28 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 20:02:14 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 20:02:14 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 20:02:14 Asia/Tokyo] PHP Notice:  Undefined variable: _SESSION in /var/www/html/docker/db/postsTable.php on line 45
+[25-May-2022 20:02:14 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 20:02:14 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 20:02:14 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 49
+[25-May-2022 20:02:14 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 20:04:33 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 20:04:33 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 20:04:33 Asia/Tokyo] PHP Notice:  Undefined variable: _SESSION in /var/www/html/docker/db/postsTable.php on line 45
+[25-May-2022 20:04:33 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postTitle in /var/www/html/docker/db/postsTable.php on line 46
+[25-May-2022 20:04:33 Asia/Tokyo] PHP Warning:  PDOStatement::bindValue(): SQLSTATE[HY093]: Invalid parameter number: :postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 20:04:33 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 49
+[25-May-2022 20:04:33 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 21:12:08 Asia/Tokyo] PHP Notice:  A session had already been started - ignoring session_start() in /var/www/html/index.php on line 5
+[25-May-2022 21:42:21 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 21:42:21 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 21:42:21 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/db/postsTable.php on line 51
+[25-May-2022 21:42:21 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 21:46:23 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 21:46:23 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 21:46:23 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 21:47:43 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 21:47:43 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 21:47:43 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 21:48:49 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 21:48:49 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 21:48:49 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 21:50:48 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 40
+[25-May-2022 21:50:48 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 41
+[25-May-2022 21:50:48 Asia/Tokyo] nari2022/05/25
+[25-May-2022 21:50:48 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:40) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 21:54:34 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[25-May-2022 21:54:34 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[25-May-2022 21:54:34 Asia/Tokyo] nari2022/05/25
+[25-May-2022 21:54:34 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 21:55:26 Asia/Tokyo] PHP Notice:  Undefined index: postTitle in /var/www/html/docker/db/postsTable.php on line 36
+[25-May-2022 21:55:26 Asia/Tokyo] PHP Notice:  Undefined index: postContents in /var/www/html/docker/db/postsTable.php on line 37
+[25-May-2022 21:55:26 Asia/Tokyo] nari2022/05/25
+[25-May-2022 21:55:26 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 21:58:47 Asia/Tokyo] PHP Notice:  Undefined index: postTitle in /var/www/html/docker/db/postsTable.php on line 36
+[25-May-2022 21:58:47 Asia/Tokyo] PHP Notice:  Undefined index: postContents in /var/www/html/docker/db/postsTable.php on line 37
+[25-May-2022 21:58:47 Asia/Tokyo] PHP Notice:  Undefined index: postTitle in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 21:58:47 Asia/Tokyo] PHP Notice:  Undefined index: postContents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 21:58:47 Asia/Tokyo] 
+[25-May-2022 21:58:47 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[25-May-2022 22:01:24 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[25-May-2022 22:01:24 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[25-May-2022 22:01:24 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 22:01:24 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[25-May-2022 22:01:24 Asia/Tokyo] 
+[25-May-2022 22:01:24 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:23:08 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:23:08 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:23:08 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:23:08 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:23:08 Asia/Tokyo] 
+[26-May-2022 10:23:08 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:30:40 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:30:40 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:30:40 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:30:40 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:30:40 Asia/Tokyo] 
+[26-May-2022 10:30:40 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:33:06 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:33:06 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:33:06 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:33:06 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:33:06 Asia/Tokyo] 
+[26-May-2022 10:33:06 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:33:08 Asia/Tokyo] 
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:33:08 Asia/Tokyo] 
+[26-May-2022 10:33:08 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:33:09 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:33:09 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:33:09 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:33:09 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:33:09 Asia/Tokyo] 
+[26-May-2022 10:33:09 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:35:07 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:35:07 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:35:07 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:35:07 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:35:07 Asia/Tokyo] 
+[26-May-2022 10:35:07 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:36:02 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:36:02 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:36:02 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:36:03 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:36:03 Asia/Tokyo] 
+[26-May-2022 10:36:03 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:39:55 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:39:55 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:39:55 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:39:55 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:39:55 Asia/Tokyo] 
+[26-May-2022 10:39:55 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:39:58 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:39:58 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:39:58 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:39:58 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:39:58 Asia/Tokyo] 
+[26-May-2022 10:39:58 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:41:48 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:41:48 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:41:48 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:41:48 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:41:48 Asia/Tokyo] 
+[26-May-2022 10:41:48 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:43:11 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:43:11 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:43:11 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:43:11 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:43:11 Asia/Tokyo] 
+[26-May-2022 10:43:11 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:44:30 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:44:30 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:44:30 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:44:30 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:44:30 Asia/Tokyo] 
+[26-May-2022 10:44:30 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:47:33 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:47:33 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:47:33 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:47:33 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:47:33 Asia/Tokyo] 
+[26-May-2022 10:47:33 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 10:50:50 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 10:50:50 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 10:50:50 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:50:50 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 10:50:50 Asia/Tokyo] 
+[26-May-2022 10:50:50 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 11:01:08 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 11:01:08 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 11:01:08 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 11:01:08 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 11:01:08 Asia/Tokyo] 
+[26-May-2022 11:01:08 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 11:07:15 Asia/Tokyo] ghjkghj
+[26-May-2022 11:21:18 Asia/Tokyo] fghjdfghj
+[26-May-2022 11:22:14 Asia/Tokyo] fghjfghjk
+[26-May-2022 11:24:46 Asia/Tokyo] なんでですか
+[26-May-2022 11:26:20 Asia/Tokyo] 一個前
+[26-May-2022 11:55:24 Asia/Tokyo] PHP Notice:  Undefined index: title in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 11:55:24 Asia/Tokyo] PHP Notice:  Undefined index: contents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 11:55:24 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 11:56:05 Asia/Tokyo] PHP Notice:  Undefined index: postTitle in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 11:56:05 Asia/Tokyo] PHP Notice:  Undefined index: postContents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 11:56:05 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 11:57:15 Asia/Tokyo] PHP Notice:  Undefined index: postTitle in /var/www/html/docker/db/postsTable.php on line 36
+[26-May-2022 11:57:15 Asia/Tokyo] PHP Notice:  Undefined index: postContents in /var/www/html/docker/db/postsTable.php on line 37
+[26-May-2022 11:57:15 Asia/Tokyo] PHP Notice:  Undefined index: postTitle in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 11:57:15 Asia/Tokyo] PHP Notice:  Undefined index: postContents in /var/www/html/docker/db/postsTable.php on line 47
+[26-May-2022 11:57:15 Asia/Tokyo] 
+[26-May-2022 11:57:15 Asia/Tokyo] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/docker/db/postsTable.php:36) in /var/www/html/docker/web/php/ajax.php on line 9
+[26-May-2022 12:00:09 Asia/Tokyo] 09870987
+[26-May-2022 12:06:37 Asia/Tokyo] 654543
+[26-May-2022 12:12:46 Asia/Tokyo] 56781234
+[26-May-2022 12:13:14 Asia/Tokyo] 12341234
+[26-May-2022 12:15:03 Asia/Tokyo] アイウエオあかさたな
+[26-May-2022 12:17:18 Asia/Tokyo] っっpおおお
+[26-May-2022 12:20:00 Asia/Tokyo] アイウエオあかさたな
+[26-May-2022 12:20:52 Asia/Tokyo] アイウエオあかさたな
+[26-May-2022 12:22:48 Asia/Tokyo] アイウエオdfghj
+[26-May-2022 12:30:41 Asia/Tokyo] できてください
+[26-May-2022 12:34:07 Asia/Tokyo] これかなここかな
+[26-May-2022 12:39:12 Asia/Tokyo] haaaaaaaaaahuuuuuuuuuu
+[26-May-2022 12:46:36 Asia/Tokyo] vghjlklgh
+[26-May-2022 12:48:41 Asia/Tokyo] みちゃありがとう
+[26-May-2022 12:53:28 Asia/Tokyo] みちゃのやつ

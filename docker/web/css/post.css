@@ -274,10 +274,14 @@ input ::placeholder {
 
 table td {
 	background: #eee;
+    height: 150px;
+
 }
 
 table tr:nth-child(odd) td {
 	background: #fff;
+    counter-increment: rowCount;
+    color:rgba(96, 96, 103, 0.65);
 }
 
 #table-header {
@@ -285,12 +289,6 @@ table tr:nth-child(odd) td {
     background-color: rgba(52, 179, 238, 0.567);
     font-weight: lighter;
     color:rgba(96, 96, 103, 0.65);
-}
-
-#table-cells {
-    counter-increment: rowCount;
-    color:rgba(96, 96, 103, 0.65);
-    height: 250px;
 }
 
 .select {
