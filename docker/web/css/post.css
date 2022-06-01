@@ -36,6 +36,7 @@
     align-items: center;
     z-index: 90;
 }
+
 .menu-btn span,
 .menu-btn span:before,
 .menu-btn span:after {
@@ -58,6 +59,7 @@
 .menu-btn span:before {
     bottom: 8px;
 }
+
 .menu-btn span:after {
     top: 8px;
 }
@@ -66,7 +68,9 @@
     display: none;
 }
 
+
 /*ハンバーガーがクリックされたら*/
+
 .open .menu-btn span {
     transform: rotate(30deg);
     top: 11px;
@@ -83,15 +87,18 @@
     margin-top: -10px;
 }
 
+
 /* 
 sp-nav(ナビ)
   =================================== */
+
 .sp-nav .inner {
     position: fixed;
-    right: -100%; 
+    right: -100%;
     /* ハンバーガーがクリックされる前はWindow右側に隠す */
     top: 90;
-    width: 250px; /* 出てくるスライドメニューの幅 */
+    width: 250px;
+    /* 出てくるスライドメニューの幅 */
     height: 180px;
     background-color: #fff;
     transition: all 0.5s;
@@ -99,7 +106,9 @@ sp-nav(ナビ)
     font-family: sans-serif;
 }
 
+
 /*ハンバーガーがクリックされたら右からスライド*/
+
 .open .sp-nav .inner {
     right: 30;
     background-color: rgb(218, 218, 224);
@@ -125,13 +134,17 @@ sp-nav(ナビ)
     padding-top: 15px;
 }
 
-.add-post a, .mg-user a, .logout a {
+.add-post a,
+.mg-user a,
+.logout a {
     text-decoration: none;
 }
+
 
 /* 
 black-bg(ハンバーガーメニュー解除用bg)
   =================================== */
+
 .black-bg {
     position: fixed;
     left: 0;
@@ -148,7 +161,9 @@ black-bg(ハンバーガーメニュー解除用bg)
     margin-top: 79;
 }
 
+
 /*ハンバーガーメニューが開いたら表示*/
+
 .open .black-bg {
     opacity: 0.3;
     visibility: visible;
@@ -202,7 +217,6 @@ black-bg(ハンバーガーメニュー解除用bg)
 
 #post-form p {
     text-align: left;
-    
 }
 
 #modal-title {
@@ -210,7 +224,7 @@ black-bg(ハンバーガーメニュー解除用bg)
     border-radius: 10px;
     width: 500px;
     height: 35px;
-} 
+}
 
 input ::placeholder {
     opacity: 0.6;
@@ -230,18 +244,17 @@ input ::placeholder {
     border: solid 1px rgba(96, 96, 103, 0.65);
     width: 120px;
     height: 50px;
-    color:rgba(96, 96, 103, 0.65);
+    color: rgba(96, 96, 103, 0.65);
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
 }
 
-
 .heading h2 {
     font-size: 25px;
     margin-top: 30px;
     margin-left: 150px;
-    color:rgba(96, 96, 103, 0.65);
+    color: rgba(96, 96, 103, 0.65);
     font-family: sans-serif;
     font-weight: normal;
     font-size: 32px;
@@ -253,10 +266,10 @@ input ::placeholder {
     border: solid 1px rgba(96, 96, 103, 0.65);
     width: 120px;
     height: 50px;
-    color:rgba(96, 96, 103, 0.65);
+    color: rgba(96, 96, 103, 0.65);
     text-align: center;
     float: right;
-    margin-top: -45px; 
+    margin-top: -45px;
     margin-right: 115px;
 }
 
@@ -267,28 +280,27 @@ input ::placeholder {
     height: 150px;
     border-collapse: collapse;
     border: solid 1px rgba(96, 96, 103, 0.65);
-    color:rgba(96, 96, 103, 0.65);
+    color: rgba(96, 96, 103, 0.65);
     text-align: center;
     font-family: sans-serif;
 }
 
 table td {
-	background: #eee;
+    background: #eee;
     height: 150px;
-
 }
 
 table tr:nth-child(odd) td {
-	background: #fff;
+    background: #fff;
     counter-increment: rowCount;
-    color:rgba(96, 96, 103, 0.65);
+    color: rgba(96, 96, 103, 0.65);
 }
 
 #table-header {
     height: 50px;
     background-color: rgba(52, 179, 238, 0.567);
     font-weight: lighter;
-    color:rgba(96, 96, 103, 0.65);
+    color: rgba(96, 96, 103, 0.65);
 }
 
 .select {

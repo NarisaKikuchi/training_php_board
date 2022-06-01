@@ -51,16 +51,16 @@ $(function() {
                     'func': 'addPostDisplay',
                     'postTitle': posttitle,
                     'postContents': postcontents,
-                    // 'postTitle':$('#modal-title').val(),
-                    // 'postContents':$('#modal-contents').val(),
                 },
             })
             .done(function(data) {
                 $('#post-modal').fadeOut();
-                $('.sp-nav').fadeOut();
+                getAddPostDatabase();
                 $('.black-bg').fadeOut();
                 $('.hamburger-menu').toggleClass('open');
-                getAddPostDatabase();
+                $('.sp-nav').toggleClass('open');
+                document.getElementById('modal-title').value = "";
+                document.getElementById('modal-contents').value = "";
             }).fail(function(data) {
                 alert('通信失敗');
             })
