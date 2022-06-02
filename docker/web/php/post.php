@@ -58,7 +58,7 @@ if (!isset($_SESSION["loginuserid"])) {
         </div>
         <div class="heading">
             <h2>投稿一覧
-                <div type="submit" class="delete-button">
+                <div type="submit" class="dlt-button" id="dlt-btn">
                     <input onclick="location.href=''" value="削除">
                 </div>
             </h2>

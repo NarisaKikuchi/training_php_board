@@ -47,6 +47,7 @@ class postsTable
     /**
      * 追加投稿表示機能
      * 
+     * @return void
      */
     public function addPostDisplay()
     {
@@ -64,6 +65,26 @@ class postsTable
             $addpostdata->bindValue(':posttitle', $title);
             $addpostdata->bindValue(':postcontents', $contents);
             $addpostdata->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage;
+        }
+    }
+
+    /**
+     * 投稿削除機能
+     * 
+     * @return void
+     */
+    public function deletePostDatabese()
+    {
+        $dbconnect = new usersTable();
+        $dbinfo = $dbconnect->connectDatabase();
+        try {
+            $delete = $_POST['deleteButton'];
+            $sql = "DELETE FROM posts WHERE seq_no = :number;";
+            $deletepostdata = $dbinfo->prepare($sql);
+            $deletepostdata->bindValue(':number', $delete);
+            $deletepostdata->execute();
         } catch (PDOException $e) {
             echo $e->getMessage;
         }

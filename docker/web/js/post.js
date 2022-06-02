@@ -85,7 +85,7 @@ $(function() {
                 $.each(data, function(key, value) {
                     $('#post-data').append('<tr><td>' + '<input type="checkbox" class="checkbox"></td><td>' +
                         value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td>' +
-                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square"></i></td><td>&times;</td></tr>'
+                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
                     )
                 });
             }).fail(function(data) {
@@ -113,7 +113,7 @@ $(function() {
                 $.each(data, function(key, value) {
                     $('#post-data').append('<tr><td>' + '<input type="checkbox" class="checkbox"></td><td>' +
                         value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td>' +
-                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square"></i></td><td>&times;</td></tr>'
+                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
                     )
                 });
             }).fail(function(data) {
@@ -121,24 +121,77 @@ $(function() {
             })
     }
 
-    //ハンバーガーメニュー押下時
-    const nav = document.getElementById('hamburger-menu');
-    const hamburger = document.getElementById('menu-btn');
-    const blackBg = document.getElementById('js-black-bg');
-    hamburger.addEventListener('click', function() {
-        nav.classList.toggle('open');
-    });
-    blackBg.addEventListener('click', function() {
-        nav.classList.remove('open');
-    });
+    /**
+     * 投稿削除
+     * 
+     * @return void
+     */
+    //削除アイコン押下時
+    $(document).on('click', '.delete-btn', function(value) {
+        const number = $(this).attr('id');
+        const response = window.confirm('No.' + number + 'の投稿を本当に削除しますか？');
+        if (response == false) {
+            return;
+        }
+        $.ajax({
+                type: 'POST',
+                url: '../php/ajax.php',
+                datatype: 'json',
+                data: {
+                    'class': 'postsTable',
+                    'func': 'deletePostDatabese',
+                    'deleteButton': number,
+                },
+            })
+            .done(function(data) {
+                afterDeletePostDatabase();
+                getPostDatabase();
+            }).fail(function(data) {
+                alert('通信失敗');
+            })
 
-    //投稿追加ボタンでモーダル表示
-    $('#add-post').click(function() {
-        $('#post-modal').fadeIn();
-    });
+        /**
+         * 削除後の投稿の表示
+         * 
+         * @return void
+         */
+        function afterDeletePostDatabase() {
+            $.ajax({
+                    type: 'POST',
+                    url: '../php/ajax.php',
+                    datatype: 'json',
+                    data: {
+                        'class': 'postsTable',
+                        'func': 'display',
+                    },
+                })
+                .done(function(data) {
+                    $("#post-data").empty();
+                }).fail(function(data) {
+                    alert('通信失敗');
+                })
+        }
 
-    //バツを押してモーダルを隠す
-    $('.close-modal').click(function() {
-        $('#post-modal').fadeOut();
-    })
+
+        //ハンバーガーメニュー押下時
+        const nav = document.getElementById('hamburger-menu');
+        const hamburger = document.getElementById('menu-btn');
+        const blackBg = document.getElementById('js-black-bg');
+        hamburger.addEventListener('click', function() {
+            nav.classList.toggle('open');
+        });
+        blackBg.addEventListener('click', function() {
+            nav.classList.remove('open');
+        });
+
+        //投稿追加ボタンでモーダル表示
+        $('#add-post').click(function() {
+            $('#post-modal').fadeIn();
+        });
+
+        //バツを押してモーダルを隠す
+        $('.close-modal').click(function() {
+            $('#post-modal').fadeOut();
+        })
+    });
 });
