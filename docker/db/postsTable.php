@@ -75,7 +75,7 @@ class postsTable
      * 
      * @return void
      */
-    public function deletePostData()
+    public function deletePostDataBySeqNo()
     {
         $dbconnect = new usersTable();
         $dbinfo = $dbconnect->connectDatabase();

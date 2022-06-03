@@ -177,7 +177,7 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'deletePostData',
+                    'func': 'deletePostDataBySeqNo',
                     'deleteButton': number,
                 },
             })
