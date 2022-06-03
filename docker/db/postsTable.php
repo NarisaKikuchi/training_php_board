@@ -5,11 +5,11 @@ class postsTable
 {
 
     /**
-     * 表示機能
+     * レコードを全て取得
      * 
      * @return void
      */
-    public function display()
+    public function getPostDataWithAscendingOrder()
     {
         $dbconnect = new usersTable();
         $dbinfo = $dbconnect->connectDatabase();
@@ -25,11 +25,11 @@ class postsTable
     }
 
     /**
-     * 追加投稿の表示機能
+     * seq_noが最大のレコードを取得
      * 
      * @return void
      */
-    public function addDisplay()
+    public function getPostWhereMaxSeqNo()
     {
         $dbconnect = new usersTable();
         $dbinfo = $dbconnect->connectDatabase();
@@ -45,11 +45,11 @@ class postsTable
     }
 
     /**
-     * 投稿追加機能
+     * 追加投稿をデータベースに挿入
      * 
      * @return void
      */
-    public function addPostDisplay()
+    public function insertPostData()
     {
         $dbconnect = new usersTable();
         $dbinfo = $dbconnect->connectDatabase();
@@ -71,11 +71,11 @@ class postsTable
     }
 
     /**
-     * 投稿削除機能
+     * データベースから投稿を削除
      * 
      * @return void
      */
-    public function deletePostDatabese()
+    public function deletePostData()
     {
         $dbconnect = new usersTable();
         $dbinfo = $dbconnect->connectDatabase();

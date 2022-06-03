@@ -43,7 +43,7 @@ $(function() {
      * 追加投稿時のバリデーションチェック
      * 投稿ボタン押下時の処理
      * 
-     * @return String postalerts エラー文
+     * @return String | void
      */
     function postValidation(posttitle, postcontents) {
         let postalert = [];
@@ -86,7 +86,7 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'addPostDisplay',
+                    'func': 'insertPostData',
                     'postTitle': posttitle,
                     'postContents': postcontents,
                 },
@@ -116,7 +116,7 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'display',
+                    'func': 'getPostDataWithAscendingOrder',
                 },
             })
             .done(function(data) {
@@ -144,7 +144,7 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'addDisplay',
+                    'func': 'getPostWhereMaxSeqNo',
                 },
             })
             .done(function(data) {
@@ -177,7 +177,7 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'deletePostDatabese',
+                    'func': 'deletePostData',
                     'deleteButton': number,
                 },
             })
