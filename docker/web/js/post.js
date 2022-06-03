@@ -1,17 +1,55 @@
 $(function() {
 
+    //ハンバーガーメニュー押下時
+    const nav = document.getElementById('hamburger-menu');
+    const hamburger = document.getElementById('menu-btn');
+    const blackBg = document.getElementById('js-black-bg');
+    hamburger.addEventListener('click', function() {
+        nav.classList.toggle('open');
+    });
+    blackBg.addEventListener('click', function() {
+        nav.classList.remove('open');
+    });
+
+    //バツを押してモーダルを隠す
+    $('.close-modal').click(function() {
+        $('#post-modal').fadeOut();
+    });
+
+    //編集アイコン押下でモーダル表示
+    $(document).on('click', '#edit-btn', function(event) {
+        $('#edit-post-modal').fadeIn();
+        //編集時のモーダルタイトル
+        const nember = event.attr();
+        const posttitle = document.getElementById('edit-title-' + value.post_title).innerHTML;
+        const titlesplit = posttitle.split("<br>");
+        document.getElementById('edit-modal-title').value = titlesplit[0]
+        alert(titlesplit[0]);
+        //編集時のモーダルコンテンツ
+        const postcontents = document.getElementById('edit-modal-contents').innerHTML;
+        const contentssplit = postcontents.split("<br>");
+        document.getElementById('edit-modal-title').value = contentssplit[1]
+        alert(contentssplit[1]);
+    });
+
+    //バツを押して編集モーダルを隠す
+    $('.edit-close-modal').click(function() {
+        $('#edit-post-modal').fadeOut();
+    });
+
+
     const postbutton = document.getElementById('post-btn');
     /**
      * 追加投稿時のバリデーションチェック
      * 投稿ボタン押下時の処理
      * 
-     * @return void
+     * @return String postalerts エラー文
      */
     function postValidation(posttitle, postcontents) {
         let postalert = [];
 
         // 入力値チェック
-        if (posttitle == "" || postcontents == "") {
+        if (posttitle === "" || postcontents === "") {
             postalert.push("タイトルまたは投稿内容が未入力です。\n");
         }
 
@@ -84,8 +122,8 @@ $(function() {
             .done(function(data) {
                 $.each(data, function(key, value) {
                     $('#post-data').append('<tr><td>' + '<input type="checkbox" class="checkbox"></td><td>' +
-                        value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td>' +
-                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
+                        value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td id="edit-title-"' + value.post_title + '>' +
+                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square" id="edit-btn"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
                     )
                 });
             }).fail(function(data) {
@@ -113,7 +151,7 @@ $(function() {
                 $.each(data, function(key, value) {
                     $('#post-data').append('<tr><td>' + '<input type="checkbox" class="checkbox"></td><td>' +
                         value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td>' +
-                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
+                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square" id="edit-btn"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
                     )
                 });
             }).fail(function(data) {
@@ -144,54 +182,12 @@ $(function() {
                 },
             })
             .done(function(data) {
-                afterDeletePostDatabase();
+                $("#post-data").empty();
                 getPostDatabase();
             }).fail(function(data) {
                 alert('通信失敗');
             })
 
-        /**
-         * 削除後の投稿の表示
-         * 
-         * @return void
-         */
-        function afterDeletePostDatabase() {
-            $.ajax({
-                    type: 'POST',
-                    url: '../php/ajax.php',
-                    datatype: 'json',
-                    data: {
-                        'class': 'postsTable',
-                        'func': 'display',
-                    },
-                })
-                .done(function(data) {
-                    $("#post-data").empty();
-                }).fail(function(data) {
-                    alert('通信失敗');
-                })
-        }
-
-
-        //ハンバーガーメニュー押下時
-        const nav = document.getElementById('hamburger-menu');
-        const hamburger = document.getElementById('menu-btn');
-        const blackBg = document.getElementById('js-black-bg');
-        hamburger.addEventListener('click', function() {
-            nav.classList.toggle('open');
-        });
-        blackBg.addEventListener('click', function() {
-            nav.classList.remove('open');
-        });
-
-        //投稿追加ボタンでモーダル表示
-        $('#add-post').click(function() {
-            $('#post-modal').fadeIn();
-        });
-
-        //バツを押してモーダルを隠す
-        $('.close-modal').click(function() {
-            $('#post-modal').fadeOut();
-        })
     });
+
 });

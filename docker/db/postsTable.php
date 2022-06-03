@@ -45,7 +45,7 @@ class postsTable
     }
 
     /**
-     * 追加投稿表示機能
+     * 投稿追加機能
      * 
      * @return void
      */
