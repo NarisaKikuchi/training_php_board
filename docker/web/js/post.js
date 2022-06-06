@@ -1,5 +1,32 @@
 $(function() {
 
+    //ハンバーガーメニュー押下時
+    const nav = document.getElementById('hamburger-menu');
+    const hamburger = document.getElementById('menu-btn');
+    const blackBg = document.getElementById('js-black-bg');
+    hamburger.addEventListener('click', function() {
+        nav.classList.toggle('open');
+    });
+    blackBg.addEventListener('click', function() {
+        nav.classList.remove('open');
+    });
+
+    //投稿追加ボタンを押下時にモーダル表示
+    $('#add-post').click(function() {
+        $('#post-modal').fadeIn();
+    })
+
+    //バツを押して投稿モーダルを隠す
+    $('.close-modal').click(function() {
+        $('#post-modal').fadeOut();
+    });
+
+    //バツを押して編集モーダルを隠す
+    $('.edit-close-modal').click(function() {
+        $('#edit-post-modal').fadeOut();
+    });
+
+
     const postbutton = document.getElementById('post-btn');
     /**
      * 追加投稿時のバリデーションチェック
@@ -11,7 +38,7 @@ $(function() {
         let postalert = [];
 
         // 入力値チェック
-        if (posttitle == "" || postcontents == "") {
+        if (posttitle === "" || postcontents === "") {
             postalert.push("タイトルまたは投稿内容が未入力です。\n");
         }
 
@@ -66,9 +93,57 @@ $(function() {
             })
     })
 
+    //編集アイコン押下時の処理
+    $(document).on('click', '.edit-btn', function() {
+        //編集時のモーダルタイトル
+        const editnumber = $(this).attr('id');
+        const posttitle = document.getElementById('edit-title-' + editnumber).innerHTML;
+        const titlesplit = posttitle.split("<br>");
+        document.getElementById('edit-modal-title').value = titlesplit[0];
+        //編集時のモーダルコンテンツ
+        document.getElementById('edit-modal-contents').value = titlesplit[1];
+        //seq_noの紐付け
+        document.getElementById('edit-seq').value = editnumber;
+        $('#edit-post-modal').fadeIn();
+    });
+
+    //編集時の投稿するボタン押下時
+    const editpostbutton = document.getElementById('edit-post-btn');
+    editpostbutton.addEventListener('click', function(event) {
+        const posttitle = document.getElementById('edit-modal-title').value;
+        const postcontents = document.getElementById('edit-modal-contents').value;
+        const seqno = document.getElementById('edit-seq').value
+        const editpostalert = postValidation(posttitle, postcontents);
+        if (editpostalert) {
+            alert(editpostalert);
+            return;
+        }
+
+        $.ajax({
+                type: 'POST',
+                url: '../php/ajax.php',
+                datatype: 'json',
+                data: {
+                    'class': 'postsTable',
+                    'func': 'updatePostDataBySeqNo',
+                    'postTitle': posttitle,
+                    'postContents': postcontents,
+                    'editButton': seqno,
+                },
+            })
+            .done(function(data) {
+                $('#edit-post-modal').fadeOut();
+                $("#post-data").empty();
+                getPostDatabase();
+                $('.black-bg').fadeOut();
+            }).fail(function(data) {
+                alert('通信失敗');
+            })
+    })
+
     /**
      * 投稿一覧を表示する
-     * 
+     *
      * @return void
      */
     function getPostDatabase() {
@@ -83,9 +158,9 @@ $(function() {
             })
             .done(function(data) {
                 $.each(data, function(key, value) {
-                    $('#post-data').append('<tr><td>' + '<input type="checkbox" class="checkbox"></td><td>' +
-                        value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td>' +
-                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
+                    $('#post-data').append('<tr><td>' + '<input type="checkbox" class="check" id="checkbox" value=' + value.seq_no + '></td><td>' +
+                        value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td id="edit-title-' + value.seq_no + '">' +
+                        value.post_title + '<br>' + value.post_contents + '</td><td class="edit-btn" id=' + value.seq_no + '><i class="fa-solid fa-pen-to-square"></i></td><td class="delete-btn" id=' + value.seq_no + '>&times;</td></tr>'
                     )
                 });
             }).fail(function(data) {
@@ -94,9 +169,10 @@ $(function() {
     }
     getPostDatabase();
 
+
     /**
      * 追加された投稿の表示
-     * 
+     *
      * @return void
      */
     function getAddPostDatabase() {
@@ -106,16 +182,12 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'addDisplay',
+                    'func': 'display',
                 },
             })
             .done(function(data) {
-                $.each(data, function(key, value) {
-                    $('#post-data').append('<tr><td>' + '<input type="checkbox" class="checkbox"></td><td>' +
-                        value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td>' +
-                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
-                    )
-                });
+                $("#post-data").empty();
+                getPostDatabase();
             }).fail(function(data) {
                 alert('通信失敗');
             })
@@ -149,49 +221,76 @@ $(function() {
             }).fail(function(data) {
                 alert('通信失敗');
             })
+    })
 
-        /**
-         * 削除後の投稿の表示
-         * 
-         * @return void
-         */
-        function afterDeletePostDatabase() {
-            $.ajax({
-                    type: 'POST',
-                    url: '../php/ajax.php',
-                    datatype: 'json',
-                    data: {
-                        'class': 'postsTable',
-                        'func': 'display',
-                    },
-                })
-                .done(function(data) {
-                    $("#post-data").empty();
-                }).fail(function(data) {
-                    alert('通信失敗');
-                })
+    /**
+     * 削除後の投稿の表示
+     * 
+     * @return void
+     */
+    function afterDeletePostDatabase() {
+        $.ajax({
+                type: 'POST',
+                url: '../php/ajax.php',
+                datatype: 'json',
+                data: {
+                    'class': 'postsTable',
+                    'func': 'display',
+                },
+            })
+            .done(function(data) {
+                $("#post-data").empty();
+            }).fail(function(data) {
+                alert('通信失敗');
+            })
+    }
+
+    //選択削除機能
+    function bulkDelete() {
+        $("#dlt-btn").prop("disabled", true);
+        $(document).on('change', '#checkbox', function() {
+            // チェックされているチェックボックスの数
+            if ($("#checkbox:checked").length > 0) {
+                // ボタン有効
+                $("#dlt-btn").prop("disabled", false);
+            } else {
+                // ボタン無効
+                $("#dlt-btn").prop("disabled", true);
+            }
+        });
+    }
+
+    //削除ボタン押下時
+    $(document).on('click', '#dlt-btn', function(value) {
+        const arr = [];
+        const check = document.getElementsByClassName("check");
+
+        for (let i = 0; i < check.length; i++) {
+            if (check[i].checked) {
+                arr.push(check[i].value);
+            }
+        }
+        const checkednumber = arr;
+        const checkres = window.confirm('No.' + checkednumber + 'の投稿を本当に削除しますか？');
+        if (checkres == false) {
+            return;
         }
 
-
-        //ハンバーガーメニュー押下時
-        const nav = document.getElementById('hamburger-menu');
-        const hamburger = document.getElementById('menu-btn');
-        const blackBg = document.getElementById('js-black-bg');
-        hamburger.addEventListener('click', function() {
-            nav.classList.toggle('open');
-        });
-        blackBg.addEventListener('click', function() {
-            nav.classList.remove('open');
-        });
-
-        //投稿追加ボタンでモーダル表示
-        $('#add-post').click(function() {
-            $('#post-modal').fadeIn();
-        });
-
-        //バツを押してモーダルを隠す
-        $('.close-modal').click(function() {
-            $('#post-modal').fadeOut();
-        })
-    });
+        $.ajax({
+                type: 'POST',
+                url: '../php/ajax.php',
+                datatype: 'json',
+                data: {
+                    'class': 'postsTable',
+                    'func': 'deleteBulkPostDatabase',
+                    'deleteChecked': checkednumber,
+                },
+            })
+            .done(function(data) {
+                $("#post-data").empty();
+                getPostDatabase();
+            }).fail(function(data) {
+                alert('通信失敗');
+            })
+    })
 });

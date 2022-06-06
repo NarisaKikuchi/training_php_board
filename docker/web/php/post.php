@@ -39,6 +39,8 @@ if (!isset($_SESSION["loginuserid"])) {
                 <div class="black-bg" id="js-black-bg"></div>
             </div>
         </div>
+
+        <!-- 追加投稿モーダル -->
         <div class="post-modal-wrapper" id="post-modal">
             <div class="modal" id="modal">
                 <div class="close-modal">
@@ -56,10 +58,32 @@ if (!isset($_SESSION["loginuserid"])) {
                 </div>
             </div>
         </div>
+
+        <!-- 編集モーダル -->
+        <div class="edit-post-modal-wrapper" id="edit-post-modal">
+            <div class="edit-modal" id="edit-modal">
+                <div class="edit-close-modal">
+                    <i class="fa fa-2x fa-times"></i>
+                </div>
+                <div id="post-form">
+                    <h2>投稿編集</h2>
+                    <p>投稿タイトル</p>
+                    <input id="edit-modal-title" name="editPostTitle" type="text" maxlength="20">
+                    <input id="edit-seq" type="hidden">
+                    <p>投稿内容</p>
+                    <input id="edit-modal-contents" name="editPostContents" type="text" maxlength="200">
+                    <div class="edit-post-btn">
+                        <input class="edit-egist-post" id="edit-post-btn" name="editRsegistPost" type="submit"
+                            value="投稿する">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="heading">
             <h2>投稿一覧
-                <div type="submit" class="dlt-button" id="dlt-btn">
-                    <input onclick="location.href=''" value="削除">
+                <div type="submit" class="dlt-button">
+                    <input id="dlt-btn" onclick="location.href=''" value="削除">
                 </div>
             </h2>
         </div>
