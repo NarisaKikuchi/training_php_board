@@ -5,11 +5,11 @@ class postsTable
 {
 
     /**
-     * 表示機能
+     * レコードを全て取得
      * 
      * @return void
      */
-    public function display()
+    public function getPostDataWithAscendingOrder()
     {
         $dbconnect = new usersTable();
         $dbinfo = $dbconnect->connectDatabase();
@@ -25,11 +25,31 @@ class postsTable
     }
 
     /**
-     * 追加投稿表示機能
+     * seq_noが最大のレコードを取得
      * 
      * @return void
      */
-    public function addPostDisplay()
+    public function getPostWhereMaxSeqNo()
+    {
+        $dbconnect = new usersTable();
+        $dbinfo = $dbconnect->connectDatabase();
+        try {
+            $sql = "select * from posts where seq_no=(select max(seq_no) from posts);";
+            $tabledata = $dbinfo->prepare($sql);
+            $tabledata->execute();
+            $result = $tabledata->fetchAll();
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage;
+        }
+    }
+
+    /**
+     * 追加投稿をデータベースに挿入
+     * 
+     * @return void
+     */
+    public function insertPostData()
     {
         $dbconnect = new usersTable();
         $dbinfo = $dbconnect->connectDatabase();
@@ -51,11 +71,11 @@ class postsTable
     }
 
     /**
-     * 投稿削除機能
+     * データベースから投稿を削除
      * 
      * @return void
      */
-    public function deletePostDatabese()
+    public function deletePostDataBySeqNo()
     {
         $dbconnect = new usersTable();
         $dbinfo = $dbconnect->connectDatabase();

@@ -1,7 +1,7 @@
 <?php
 require_once('../../db/postsTable.php');
 $table = new postsTable();
-$result = $table->display();
+$result = $table->getPostDataWithAscendingOrder();
 
 //別のウィンドウで開いたとき、ログインページに飛ばす
 if (!isset($_SESSION["loginuserid"])) {

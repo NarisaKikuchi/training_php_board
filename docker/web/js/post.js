@@ -21,6 +21,22 @@ $(function() {
         $('#post-modal').fadeOut();
     });
 
+    //編集アイコン押下でモーダル表示
+    $(document).on('click', '#edit-btn', function(event) {
+        $('#edit-post-modal').fadeIn();
+        //編集時のモーダルタイトル
+        const nember = event.attr();
+        const posttitle = document.getElementById('edit-title-' + value.post_title).innerHTML;
+        const titlesplit = posttitle.split("<br>");
+        document.getElementById('edit-modal-title').value = titlesplit[0]
+        alert(titlesplit[0]);
+        //編集時のモーダルコンテンツ
+        const postcontents = document.getElementById('edit-modal-contents').innerHTML;
+        const contentssplit = postcontents.split("<br>");
+        document.getElementById('edit-modal-title').value = contentssplit[1]
+        alert(contentssplit[1]);
+    });
+
     //バツを押して編集モーダルを隠す
     $('.edit-close-modal').click(function() {
         $('#edit-post-modal').fadeOut();
@@ -32,7 +48,7 @@ $(function() {
      * 追加投稿時のバリデーションチェック
      * 投稿ボタン押下時の処理
      * 
-     * @return void
+     * @return String | void
      */
     function postValidation(posttitle, postcontents) {
         let postalert = [];
@@ -75,7 +91,7 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'addPostDisplay',
+                    'func': 'insertPostData',
                     'postTitle': posttitle,
                     'postContents': postcontents,
                 },
@@ -153,7 +169,7 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'display',
+                    'func': 'getPostDataWithAscendingOrder',
                 },
             })
             .done(function(data) {
@@ -182,12 +198,16 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'display',
+                    'func': 'getPostWhereMaxSeqNo',
                 },
             })
             .done(function(data) {
-                $("#post-data").empty();
-                getPostDatabase();
+                $.each(data, function(key, value) {
+                    $('#post-data').append('<tr><td>' + '<input type="checkbox" class="checkbox"></td><td>' +
+                        value.seq_no + '</td><td>' + value.user_id + '</td><td>' + value.post_date + '</td><td>' +
+                        value.post_title + '<br>' + value.post_contents + '</td><td><i class="fa-solid fa-pen-to-square" id="edit-btn"></i></td><td class="delete-btn" id=' + value.seq_no + '><button>&times;</button></td></tr>'
+                    )
+                });
             }).fail(function(data) {
                 alert('通信失敗');
             })
@@ -211,39 +231,17 @@ $(function() {
                 datatype: 'json',
                 data: {
                     'class': 'postsTable',
-                    'func': 'deletePostDatabese',
+                    'func': 'deletePostDataBySeqNo',
                     'deleteButton': number,
                 },
             })
             .done(function(data) {
-                afterDeletePostDatabase();
+                $("#post-data").empty();
                 getPostDatabase();
             }).fail(function(data) {
                 alert('通信失敗');
             })
     })
-
-    /**
-     * 削除後の投稿の表示
-     * 
-     * @return void
-     */
-    function afterDeletePostDatabase() {
-        $.ajax({
-                type: 'POST',
-                url: '../php/ajax.php',
-                datatype: 'json',
-                data: {
-                    'class': 'postsTable',
-                    'func': 'display',
-                },
-            })
-            .done(function(data) {
-                $("#post-data").empty();
-            }).fail(function(data) {
-                alert('通信失敗');
-            })
-    }
 
     //選択削除機能
     function bulkDelete() {
