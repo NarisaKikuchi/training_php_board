@@ -206,7 +206,7 @@ $(function() {
                     data: {
                         'class': 'usersTable',
                         'func': 'deleteBulkUsersDatabase',
-                        'deleteManageChecked': checkedmanagenumber,
+                        'deleteManageChecked': arr,
                     },
                 })
                 .done(function(data) {
