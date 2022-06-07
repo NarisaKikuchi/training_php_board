@@ -268,8 +268,7 @@ $(function() {
                 arr.push(check[i].value);
             }
         }
-        const checkednumber = arr;
-        const checkres = window.confirm('No.' + checkednumber + 'の投稿を本当に削除しますか？');
+        const checkres = window.confirm('No.' + arr + 'の投稿を本当に削除しますか？');
         if (checkres == false) {
             return;
         }
