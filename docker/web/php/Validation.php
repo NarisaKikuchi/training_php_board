@@ -37,7 +37,7 @@ class Validation
         }
 
         //パスワード確認チェック
-        if ($password != $passwordconfirm) {
+        if ($password !== $passwordconfirm) {
             $alert = $alert . "パスワードが一致していません。";
         }
 
