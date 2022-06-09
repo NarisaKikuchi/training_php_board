@@ -256,38 +256,40 @@ $(function() {
                 $("#dlt-btn").prop("disabled", true);
             }
         });
-    }
 
-    //削除ボタン押下時
-    $(document).on('click', '#dlt-btn', function(value) {
-        const arr = [];
-        const check = document.getElementsByClassName("check");
 
-        for (let i = 0; i < check.length; i++) {
-            if (check[i].checked) {
-                arr.push(check[i].value);
+        //削除ボタン押下時
+        $(document).on('click', '#dlt-btn', function(value) {
+            const arr = [];
+            const check = document.getElementsByClassName("check");
+
+            for (let i = 0; i < check.length; i++) {
+                if (check[i].checked) {
+                    arr.push(check[i].value);
+                }
             }
-        }
-        const checkres = window.confirm('No.' + arr + 'の投稿を本当に削除しますか？');
-        if (checkres == false) {
-            return;
-        }
+            const checkres = window.confirm('No.' + arr + 'の投稿を本当に削除しますか？');
+            if (checkres == false) {
+                return;
+            }
 
-        $.ajax({
-                type: 'POST',
-                url: '../php/ajax.php',
-                datatype: 'json',
-                data: {
-                    'class': 'postsTable',
-                    'func': 'deleteBulkPostDatabase',
-                    'deleteChecked': checkednumber,
-                },
-            })
-            .done(function(data) {
-                $("#post-data").empty();
-                getPostDatabase();
-            }).fail(function(data) {
-                alert('通信失敗');
-            })
-    })
+            $.ajax({
+                    type: 'POST',
+                    url: '../php/ajax.php',
+                    datatype: 'json',
+                    data: {
+                        'class': 'postsTable',
+                        'func': 'deleteBulkPostDatabase',
+                        'deleteChecked': checkednumber,
+                    },
+                })
+                .done(function(data) {
+                    $("#post-data").empty();
+                    getPostDatabase();
+                }).fail(function(data) {
+                    alert('通信失敗');
+                })
+        });
+    }
+    bulkDelete();
 });

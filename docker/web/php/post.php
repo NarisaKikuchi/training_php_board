@@ -32,7 +32,7 @@ if (!isset($_SESSION["loginuserid"])) {
                 <nav class="sp-nav">
                     <ul class="inner">
                         <li class="add-post" id="add-post"><a>投稿追加</a></li>
-                        <li class="mg-user"><a>ユーザー管理</a></li>
+                        <li class="mg-user"><a href="manageUsers.php">ユーザー管理</a></li>
                         <li class="logout" name="logout"><a href="../../db/logout.php">ログアウト</a></li>
                     </ul>
                 </nav>
