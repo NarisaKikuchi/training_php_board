@@ -140,6 +140,10 @@ sp-nav(ナビ)
     text-decoration: none;
 }
 
+.add-post {
+    cursor: pointer;
+}
+
 
 /* 
 black-bg(ハンバーガーメニュー解除用bg)
@@ -248,6 +252,7 @@ input ::placeholder {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .edit-post-modal-wrapper {

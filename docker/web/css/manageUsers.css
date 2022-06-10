@@ -245,6 +245,7 @@ black-bg(ハンバーガーメニュー解除用bg)
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .heading h2 {
@@ -280,6 +281,7 @@ black-bg(ハンバーガーメニュー解除用bg)
     margin-top: -45px;
     margin-right: 115px;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .m-dlt-button input:disabled {
@@ -296,6 +298,14 @@ black-bg(ハンバーガーメニュー解除用bg)
     color: rgba(96, 96, 103, 0.65);
     text-align: center;
     font-family: sans-serif;
+}
+
+table td.m-delete-btn {
+    cursor: pointer;
+}
+
+table td.m-edit-btn {
+    cursor: pointer;
 }
 
 table td {
