@@ -1,14 +1,14 @@
 <?php
 require_once('docker/web/php/Validation.php');
-require_once('docker/db/usersTable.php');
+require_once('docker/db/UsersTable.php');
 
 if (isset($_POST["login"])) {
-    $loginuserid = htmlspecialchars($_POST["loginuserId"], ENT_QUOTES);
-    $loginpassword = $_POST['loginpassword'];
-    $loginvalidationcheck = new Validation();
-    $loginerrormessage = $loginvalidationcheck->userLoginValidation($loginuserid, $loginpassword);
-    if (!empty($loginerrormessage)) {
-        $error = "<script type='text/javascript'>alert('$loginerrormessage');</script>";
+    $login_user_id = htmlspecialchars($_POST["loginUserId"], ENT_QUOTES);
+    $login_password = $_POST['loginPassword'];
+    $login_validation_check = new Validation();
+    $login_error_message = $login_validation_check->userLoginValidation($login_user_id, $login_password);
+    if (!empty($login_error_message)) {
+        $error = "<script type='text/javascript'>alert('$login_error_message');</script>";
         echo $error;
     } else {
         header('Location: docker/web/php/post.php');
@@ -42,9 +42,9 @@ if (isset($_POST["login"])) {
             </div>
             <form action="" method="post">
                 <div>
-                    <input type="text" name="loginuserId" maxlength="20" pattern="^[a-zA-Z0-9]+$" value=""
+                    <input type="text" name="loginUserId" maxlength="20" pattern="^[a-zA-Z0-9]+$" value=""
                         placeholder="ユーザーID">
-                    <input type="password" name="loginpassword" maxlength="30" pattern="^[a-zA-Z0-9]+$" value=""
+                    <input type="password" name="loginPassword" maxlength="30" pattern="^[a-zA-Z0-9]+$" value=""
                         placeholder="パスワード">
                 </div>
 
@@ -54,7 +54,7 @@ if (isset($_POST["login"])) {
                     </div>
                 </div>
                 <div>
-                    <a href="docker/web/php/createAccount.php">新規追加はこちら</a>
+                    <a href="docker/web/php/createaccount.php">新規追加はこちら</a>
                 </div>
             </form>
         </div>

@@ -1,15 +1,17 @@
 <?php
-require_once('../../db/usersTable.php');
-$table = new usersTable();
-$result = $table->getUsersDataWithAscendingOrder();
+session_start();
 
+//別のウィンドウで開いたとき、ログインページに飛ばす
+if (!isset($_SESSION["loginUserId"])) {
+    header('Location: ../../../index.php');
+}
 ?>
 
 
 <html>
 
 <head>
-    <link rel="stylesheet" href="../css/manageUsers.css" type="text/css">
+    <link rel="stylesheet" href="../css/manageusers.css" type="text/css">
     <script src="https://kit.fontawesome.com/e330008995.js" crossorigin="anonymous"></script>
 </head>
 
@@ -81,7 +83,7 @@ $result = $table->getUsersDataWithAscendingOrder();
     </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../js/manageUsers.js" type="text/javascript"></script>
+    <script src="../js/manageusers.js" type="text/javascript"></script>
 </body>
 
 </html>
