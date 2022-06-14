@@ -1,50 +1,39 @@
 <?php
 session_start();
 
-class usersTable
-{
-    /**
-     * DB接続
-     * 
-     * @return mixed $dbinfo
-     */
-    public function connectDatabase()
-    {
-        $dbname = 'pgsql:dbname=board_database; host=db; port=5555;';
-        $dbpassword = 'password';
-        $username = 'root';
-        $dbinfo = new PDO($dbname, $username, $dbpassword);
-        return $dbinfo;
-    }
+require_once('DatabaseConnect.php');
 
+class UsersTable
+{
     /**
      * ユーザー情報新規登録
      * 
-     * @param String $userid, ユーザーID
+     * @param String $user_id, ユーザーID
      * @param String $password, パスワード
      * @return void
      */
-    public function userRegist($userid, $password)
+    public function insertUserData($user_id, $password)
     {
 
         try {
-            $dbconnect = $this->connectDatabase();
+            $db_connect = new DatabaseConnect();
+            $db_info = $db_connect->connectDatabase();
             $sql = "SELECT * FROM users WHERE user_id = :userId;";
-            $stmt = $dbconnect->prepare($sql);
-            $stmt->bindValue(':userId', $userid);
+            $stmt = $db_info->prepare($sql);
+            $stmt->bindValue(':userId', $user_id);
             $stmt->execute();
             $users = $stmt->fetchAll();
             foreach ($users as $user) {
                 if ($user['user_id']) {
-                    $errormessage = '同じユーザーIDが存在します。';
-                    return $errormessage;
+                    $error_message = '同じユーザーIDが存在します。';
+                    return $error_message;
                 }
             }
-            $passwordhash = password_hash($password, PASSWORD_DEFAULT);
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO users(user_id, password) VALUES (:userId, :password)";
-            $stmt = $dbconnect->prepare($sql);
-            $stmt->bindValue(':userId', $userid);
-            $stmt->bindValue(':password', $passwordhash);
+            $stmt = $db_info->prepare($sql);
+            $stmt->bindValue(':userId', $user_id);
+            $stmt->bindValue(':password', $password_hash);
             $stmt->execute();
             header('Location:/');
         } catch (PDOException $e) {
@@ -55,19 +44,20 @@ class usersTable
     /**
      * ログイン処理
      *
-     * @param String $userid ユーザーID
-     * @return mixed $selectuserinfo DB上のユーザー情報
+     * @param String $user_id ユーザーID
+     * @return mixed $select_user_info DB上のユーザー情報
      */
-    public function userLogin($loginuserid)
+    public function getUserDataWhereUserId($login_user_id)
     {
         try {
-            $dbconnect = $this->connectDatabase();
+            $db_connect = new DatabaseConnect();
+            $db_info = $db_connect->connectDatabase();
             $sql = "SELECT * FROM users WHERE user_id = :loginuserId";
-            $stmt = $dbconnect->prepare($sql);
-            $stmt->bindValue(':loginuserId', $loginuserid);
+            $stmt = $db_info->prepare($sql);
+            $stmt->bindValue(':loginuserId', $login_user_id);
             $stmt->execute();
-            $selectuserinfo = $stmt->fetch();
-            return $selectuserinfo;
+            $select_user_info = $stmt->fetch();
+            return $select_user_info;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -81,11 +71,12 @@ class usersTable
     public function getUsersDataWithAscendingOrder()
     {
         try {
-            $dbconnect = $this->connectDatabase();
+            $db_connect = new DatabaseConnect();
+            $db_info = $db_connect->connectDatabase();
             $sql = "SELECT * FROM users order by seq_no asc;";
-            $userstabledata = $dbconnect->prepare($sql);
-            $userstabledata->execute();
-            $result = $userstabledata->fetchAll();
+            $users_tabledata = $db_info->prepare($sql);
+            $users_tabledata->execute();
+            $result = $users_tabledata->fetchAll();
             return $result;
         } catch (PDOException $e) {
             echo $e->getMessage;
@@ -100,12 +91,13 @@ class usersTable
     public function deleteUserDataBySeqNo()
     {
         try {
-            $dbconnect = $this->connectDatabase();
+            $db_connect = new DatabaseConnect();
+            $db_info = $db_connect->connectDatabase();
             $delete = $_POST['mDeleteButton'];
             $sql = "DELETE FROM users WHERE seq_no = :number;";
-            $deleteuserdata = $dbconnect->prepare($sql);
-            $deleteuserdata->bindValue(':number', $delete);
-            $deleteuserdata->execute();
+            $delete_user_data = $db_info->prepare($sql);
+            $delete_user_data->bindValue(':number', $delete);
+            $delete_user_data->execute();
         } catch (PDOException $e) {
             echo $e->getMessage;
         }
@@ -119,14 +111,15 @@ class usersTable
     public function deleteBulkUsersDatabase()
     {
         try {
-            $dbconnect = $this->connectDatabase();
-            $deletemanagechecked = $_POST['deleteManageChecked'];
+            $db_connect = new DatabaseConnect();
+            $db_info = $db_connect->connectDatabase();
+            $delete_manage_checked = $_POST['deleteManageChecked'];
             $sql = "DELETE FROM users WHERE seq_no = :number;";
-            $checkeduserdata = $dbconnect->prepare($sql);
+            $checked_user_data = $db_info->prepare($sql);
             // foreachで削除するレコードを1件ずつループ処理
-            foreach ($deletemanagechecked as $value) {
+            foreach ($delete_manage_checked as $value) {
                 // 配列の値を :id にセットし、executeでSQLを実行
-                $checkeduserdata->execute(array(':number' => $value));
+                $checked_user_data->execute(array(':number' => $value));
             }
         } catch (PDOException $e) {
             echo $e->getMessage;
@@ -141,27 +134,28 @@ class usersTable
     public function updateUserDataBySeqNo()
     {
         try {
-            $dbconnect = $this->connectDatabase();
-            $muserid = $_POST['manageUserId'];
+            $db_connect = new DatabaseConnect();
+            $db_info = $db_connect->connectDatabase();
+            $m_user_id = $_POST['manageUserId'];
             $sql = "SELECT * FROM users WHERE user_id = :userid;";
-            $stmt = $dbconnect->prepare($sql);
-            $stmt->bindValue(':userid', $muserid);
+            $stmt = $db_info->prepare($sql);
+            $stmt->bindValue(':userid', $m_user_id);
             $stmt->execute();
             $users = $stmt->fetchAll();
             foreach ($users as $user) {
                 if ($user['user_id']) {
-                    $errormessage = '同じユーザーIDが存在します。';
-                    return $errormessage;
+                    $error_message = '同じユーザーIDが存在します。';
+                    return $error_message;
                 }
             }
-            $passwordhash = password_hash($_POST['managePassword'], PASSWORD_DEFAULT);
+            $password_hash = password_hash($_POST['managePassword'], PASSWORD_DEFAULT);
             $update = $_POST['updateButton'];
             $sql = 'UPDATE users set user_id = :userid, password = :password where seq_no = :number;';
-            $updateuserdata = $dbconnect->prepare($sql);
-            $updateuserdata->bindValue(':userid', $muserid);
-            $updateuserdata->bindValue(':password', $passwordhash);
-            $updateuserdata->bindValue(':number', $update);
-            $updateuserdata->execute();
+            $update_user_data = $db_info->prepare($sql);
+            $update_user_data->bindValue(':userid', $m_user_id);
+            $update_user_data->bindValue(':password', $password_hash);
+            $update_user_data->bindValue(':number', $update);
+            $update_user_data->execute();
         } catch (PDOException $e) {
             echo $e->getMessage;
         }

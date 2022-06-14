@@ -1,14 +1,14 @@
 $(function() {
 
     //ハンバーガーメニュー押下時
-    const nav = document.getElementById('hamburger-menu');
-    const hamburger = document.getElementById('menu-btn');
-    const blackBg = document.getElementById('js-black-bg');
-    hamburger.addEventListener('click', function() {
-        nav.classList.toggle('open');
+    const NAV = document.getElementById('hamburger-menu');
+    const HAMBURGER = document.getElementById('menu-btn');
+    const BLACK_BG = document.getElementById('js-black-bg');
+    HAMBURGER.addEventListener('click', function() {
+        NAV.classList.toggle('open');
     });
-    blackBg.addEventListener('click', function() {
-        nav.classList.remove('open');
+    BLACK_BG.addEventListener('click', function() {
+        NAV.classList.remove('open');
     });
 
     //バツを押して投稿モーダルを隠す
@@ -24,31 +24,31 @@ $(function() {
     //編集アイコン押下時の処理
     $(document).on('click', '.m-edit-btn', function() {
         //編集時のユーザーID
-        const manageusernumber = $(this).attr('id');
-        const manageuserid = document.getElementById('manage-userid-' + manageusernumber).innerHTML;
-        document.getElementById('m-user-id').value = manageuserid;
+        const MANAGE_USER_NUMBER = $(this).attr('id');
+        const MANAGE_USER_ID = document.getElementById('manage-userid-' + MANAGE_USER_NUMBER).innerHTML;
+        document.getElementById('m-user-id').value = MANAGE_USER_ID;
         //seq_noの紐付け
-        document.getElementById('m-edit-seq').value = manageusernumber;
+        document.getElementById('m-edit-seq').value = MANAGE_USER_NUMBER;
         $('#manage-users-modal').fadeIn();
     });
 
-    const updatebutton = document.getElementById('update-user-btn');
+    const UPDATE_BUTTON = document.getElementById('update-user-btn');
     /**
      * 追加投稿時のバリデーションチェック
      * 投稿ボタン押下時の処理
      * 
      * @return String | void
      */
-    function manageUserValidation(manageuserid, managepassword, managepasswordconfirm) {
+    function manageUserValidation(MANAGE_USER_ID, managepassword, managepasswordconfirm) {
         let managealert = [];
 
         // 入力値チェック
-        if (manageuserid === "" || managepassword === "" || managepasswordconfirm === "") {
+        if (MANAGE_USER_ID === "" || managepassword === "" || managepasswordconfirm === "") {
             managealert.push("未入力の項目があります。\n");
         }
 
         // ユーザーIDの半角英数・文字数制限チェック
-        if (manageuserid.length > 20 || manageuserid.match("/^[0-9a-zA-Z]*$/")) {
+        if (MANAGE_USER_ID.length > 20 || MANAGE_USER_ID.match("/^[0-9a-zA-Z]*$/")) {
             managealert.push("ユーザーIDは半角英数入力20文字以下でしてください。\n");
         }
 
@@ -75,12 +75,12 @@ $(function() {
     }
 
     //編集時の変更するボタン押下時
-    updatebutton.addEventListener('click', function(event) {
-        const muserid = document.getElementById('m-user-id').value;
-        const mpassword = document.getElementById('m-password').value;
-        const mpasswordconfirm = document.getElementById('m-password-confirm').value;
-        const seqno = document.getElementById('m-edit-seq').value;
-        const postalert = manageUserValidation(muserid, mpassword, mpasswordconfirm);
+    UPDATE_BUTTON.addEventListener('click', function(event) {
+        const M_USER_ID = document.getElementById('m-user-id').value;
+        const M_PASSWORD = document.getElementById('m-password').value;
+        const M_PASSWORD_CONFIRM = document.getElementById('m-password-confirm').value;
+        const SEQ_NO = document.getElementById('m-edit-seq').value;
+        const postalert = manageUserValidation(M_USER_ID, M_PASSWORD, M_PASSWORD_CONFIRM);
         if (postalert) {
             alert(postalert);
             return;
@@ -90,11 +90,11 @@ $(function() {
                 url: '../php/ajax.php',
                 datatype: 'json',
                 data: {
-                    'class': 'usersTable',
+                    'class': 'UsersTable',
                     'func': 'updateUserDataBySeqNo',
-                    'manageUserId': muserid,
+                    'manageUserId': M_USER_ID,
                     'managePassword': mpassword,
-                    'updateButton': seqno,
+                    'updateButton': SEQ_NO,
                 },
             })
             .done(function(data) {
@@ -121,7 +121,7 @@ $(function() {
                 url: '../php/ajax.php',
                 datatype: 'json',
                 data: {
-                    'class': 'usersTable',
+                    'class': 'UsersTable',
                     'func': 'getUsersDataWithAscendingOrder',
                 },
             })
@@ -147,9 +147,9 @@ $(function() {
      */
     //削除アイコン押下時
     $(document).on('click', '.m-delete-btn', function(value) {
-        const usernumber = $(this).attr('id');
-        const response = window.confirm('No.' + usernumber + 'のユーザーを本当に削除しますか？');
-        if (response == false) {
+        const USER_NUMBER = $(this).attr('id');
+        const RESPONSE = window.confirm('No.' + USER_NUMBER + 'のユーザーを本当に削除しますか？');
+        if (RESPONSE == false) {
             return;
         }
         $.ajax({
@@ -157,9 +157,9 @@ $(function() {
                 url: '../php/ajax.php',
                 datatype: 'json',
                 data: {
-                    'class': 'usersTable',
+                    'class': 'UsersTable',
                     'func': 'deleteUserDataBySeqNo',
-                    'mDeleteButton': usernumber,
+                    'mDeleteButton': USER_NUMBER,
                 },
             })
             .done(function(data) {
@@ -171,7 +171,7 @@ $(function() {
     })
 
     //選択削除機能
-    function bulkManageDelete() {
+    function manageUserBulkDelete() {
         $("#m-dlt-btn").prop("disabled", true);
         $(document).on('change', '#checkbox', function() {
             // チェックされているチェックボックスの数
@@ -186,16 +186,16 @@ $(function() {
 
         //削除ボタン押下時
         $(document).on('click', '#m-dlt-btn', function(value) {
-            const arr = [];
-            const check = document.getElementsByClassName("check");
+            const ARR = [];
+            const CHECK = document.getElementsByClassName("check");
 
-            for (let i = 0; i < check.length; i++) {
-                if (check[i].checked) {
-                    arr.push(check[i].value);
+            for (let i = 0; i < CHECK.length; i++) {
+                if (CHECK[i].checked) {
+                    ARR.push(CHECK[i].value);
                 }
             }
-            const checkmanageres = window.confirm('No.' + arr + 'のユーザーを本当に削除しますか？');
-            if (checkmanageres == false) {
+            const CHECK_MANAGE_RES = window.confirm('No.' + ARR + 'のユーザーを本当に削除しますか？');
+            if (CHECK_MANAGE_RES == false) {
                 return;
             }
 
@@ -204,9 +204,9 @@ $(function() {
                     url: '../php/ajax.php',
                     datatype: 'json',
                     data: {
-                        'class': 'usersTable',
+                        'class': 'UsersTable',
                         'func': 'deleteBulkUsersDatabase',
-                        'deleteManageChecked': arr,
+                        'deleteManageChecked': ARR,
                     },
                 })
                 .done(function(data) {
@@ -217,5 +217,5 @@ $(function() {
                 })
         })
     }
-    bulkManageDelete();
+    manageUserBulkDelete();
 });

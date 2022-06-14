@@ -1,28 +1,28 @@
 <?php
 require_once('Validation.php');
-require_once('../../db/usersTable.php');
+require_once('../../db/UsersTable.php');
 
 //登録するボタンが押された場合
 //issetが引数に指定した変数に値が設定されている
 if (isset($_POST["signUp"])) {
-    $userid = htmlspecialchars($_POST["userId"], ENT_QUOTES);
+    $user_id = htmlspecialchars($_POST["userId"], ENT_QUOTES);
     $password = $_POST['password'];
-    $passwordconfirm = $_POST['passwordConfirm'];
-    $validationcheck = new Validation();
-    $errormessage = $validationcheck->userRegistValidation($userid, $password, $passwordconfirm);
-    if (!empty($errormessage)) {
-        $alerts = "<script type='text/javascript'>alert('$errormessage');</script>";
+    $password_confirm = $_POST['passwordConfirm'];
+    $validation_check = new Validation();
+    $error_message = $validation_check->userRegistValidation($user_id, $password, $password_confirm);
+    if (!empty($error_message)) {
+        $alerts = "<script type='text/javascript'>alert('$error_message');</script>";
         echo $alerts;
     } else {
-        $registration = new usersTable();
-        $registration->userRegist($userid, $password);
+        $registration = new UsersTable();
+        $registration->insertUserData($user_id, $password);
     }
 } ?>
 
 <html>
 
 <head>
-    <link rel="stylesheet" href="../css/createAccount.css">
+    <link rel="stylesheet" href="../css/createaccount.css">
 </head>
 
 <body>

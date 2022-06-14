@@ -1,10 +1,9 @@
 <?php
-require_once('../../db/postsTable.php');
-$table = new postsTable();
-$result = $table->getPostDataWithAscendingOrder();
+
+session_start();
 
 //別のウィンドウで開いたとき、ログインページに飛ばす
-if (!isset($_SESSION["loginuserid"])) {
+if (!isset($_SESSION["loginUserId"])) {
     header('Location: ../../../index.php');
 }
 
@@ -32,7 +31,7 @@ if (!isset($_SESSION["loginuserid"])) {
                 <nav class="sp-nav">
                     <ul class="inner">
                         <li class="add-post" id="add-post"><a>投稿追加</a></li>
-                        <li class="mg-user"><a href="manageUsers.php">ユーザー管理</a></li>
+                        <li class="mg-user"><a href="manageusers.php">ユーザー管理</a></li>
                         <li class="logout" name="logout"><a href="../../db/logout.php">ログアウト</a></li>
                     </ul>
                 </nav>
@@ -93,7 +92,10 @@ if (!isset($_SESSION["loginuserid"])) {
                 <th class="select">選択</th>
                 <th class="no">No.</th>
                 <th class="user-id">ユーザーID</th>
-                <th class="post-date">投稿日時</th>
+                <th class="post-date">投稿日時
+                    <button class="ascending" id="asc-btn">▲</button>
+                    <button class="descending" id="desc-btn">▼</button>
+                </th>
                 <th class="post-contents">項目(内容)</th>
                 <th class="edit">編集</th>
                 <th class="delete">削除</th>
